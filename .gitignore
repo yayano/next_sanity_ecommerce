@@ -1,0 +1,8 @@
+#node modules
+/ecommerce/node_modules
+
+#next deps
+/ecommerce/.next
+
+#environement
+/ecommerce/.env
