@@ -3,7 +3,6 @@ import React from "react";
 import { urlForImage } from "@/sanity/lib/image";
 
 const HeroBanner = ({ heroBanner }) => {
-  console.log(heroBanner);
   return (
     <div className="hero-banner-container">
       <div>

@@ -3,4 +3,4 @@ export const apiVersion =
 
 export const dataset = "production";
 export const projectId = "u8o8ca0b";
-export const useCdn = true;
+export const useCdn = false;
