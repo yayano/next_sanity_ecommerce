@@ -1,7 +1,8 @@
 import React from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+import Head from "next/head";
+import { Footer, Navbar } from "@/components";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -12,7 +13,20 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="layout">
+          <Head>
+            <title>Yahia's Store</title>
+          </Head>
+          <header>
+            <Navbar />
+          </header>
+          <main className="main-container">{children}</main>
+          <footer>
+            <Footer />
+          </footer>
+        </div>
+      </body>
     </html>
   );
 }
