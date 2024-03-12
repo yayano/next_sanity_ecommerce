@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { urlForImage } from "@/sanity/lib/image";
 import Link from "next/link";
@@ -5,7 +6,7 @@ import Link from "next/link";
 const Product = ({ product: { image, name, slug, price } }) => {
   return (
     <div>
-      <Link href={`/products/${slug.current}`}>
+      <Link href={`/product/${slug.current}`}>
         <div className="product-card">
           <img
             src={urlForImage(image && image[0])}
