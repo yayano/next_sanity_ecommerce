@@ -1,17 +1,21 @@
 import React from "react";
+
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
-import {
-  AiOutlineMinus,
-  AiOutlinePlus,
-  AiOutlineStar,
-  AiFillStar,
-} from "react-icons/ai";
-import { Product } from "@/components";
+// import {
+//   AiOutlineMinus,
+//   AiOutlinePlus,
+//   AiOutlineStar,
+//   AiFillStar,
+// } from "react-icons/ai";
+import {AiOutlineStar,
+     AiFillStar} from "react-icons/ai"
+import { Product,ProductManagement } from "@/components";
+
 export default async function ProductDetails({ params }) {
   const { product, products } = await getServerSideData(params.slug);
   const { image, name, details, price } = product;
-
+  
   return (
     <div>
       <div className="product-detail-container">
@@ -22,11 +26,13 @@ export default async function ProductDetails({ params }) {
             className="product-detail-image"
           />
         </div>
-        <div className="small-images-container">
+        <ProductManagement image={image} />
+        {/* <div className="small-images-container">
           {image?.map((item, i) => (
             <img key={i} src={urlForImage(item)} className="" onMouseEnter="" />
           ))}
-        </div>
+        </div> */}
+        
         <div className="product-detail-desc">
           <h1>{name}</h1>
           <div className="reviews">
@@ -42,6 +48,7 @@ export default async function ProductDetails({ params }) {
           <h4>Details:</h4>
           <p> {details} </p>
           <p className="price">${price} </p>
+{/*         
           <h3>Quantity</h3>
           <p className="quantity-desc">
             <span className="minus" onClick="">
@@ -52,7 +59,7 @@ export default async function ProductDetails({ params }) {
             <span className="plus" onClick="">
               <AiOutlinePlus />
             </span>
-          </p>
+          </p> */}
         </div>
         <div className="buttons">
           <button type="button" className="add-to-cart" onClick="">
