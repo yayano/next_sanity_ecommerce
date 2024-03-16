@@ -6,11 +6,11 @@ import { Product,ProductManagement } from "@/components";
 
 export default async function ProductDetails({ params }) {
   const { product, products } = await getServerSideData(params.slug);
-  const { image, name, details, price } = product;
+  const { image, name, details, price,_id } = product;
 
   return (
     <div>
-        <ProductManagement product={{image,name,details,price}}  />
+        <ProductManagement product={{image,name,details,price,_id}}  />
       <div className="maylike-products-wrapper">
         <h2>You may also like</h2>
         <div className="marquee">

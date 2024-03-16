@@ -7,21 +7,15 @@ import {
     AiOutlineStar,
      AiFillStar
   } from "react-icons/ai";
+  import { useStateContexte } from '@/contexte/StateContext';
 const ProductManagement = ({product}) => {
-
+    const {incQty,decQty,qty,onAdd} = useStateContexte()
     const [index,setIndex] = useState(0)
-    const [qty,setQty] = useState(1)
-    const{image,name,price,details} = product
+    //const [qty,setQty] = useState(1)
+    const{image,name,price,details,_id} = product
     
-    const incQty = () => {
-        setQty((prevQty) => prevQty + 1);
-        
-      }
-      const decQty = () => {
-
-        setQty((prevQty) => {if (prevQty - 1<1) return 1;
-        return prevQty -1});
-      }
+    
+      
   return (
       < div className="product-detail-container">
         <div>
@@ -67,7 +61,7 @@ const ProductManagement = ({product}) => {
               </p>
           </div>
           <div className="buttons">
-            <button type="button" className="add-to-cart" onClick="">
+            <button type="button" className="add-to-cart" onClick={()=>onAdd(product,qty)}>
               Add to cart
             </button>
             <button type="button" className="buy-now" onClick="">
